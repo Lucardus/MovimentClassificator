@@ -1,3 +1,6 @@
+import pathlib
+pathlib.WindowsPath = pathlib.PosixPath
+
 from fastai.vision.all import *
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
