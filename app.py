@@ -3,7 +3,7 @@ from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 import gradio as gr
 
-learn = load_learner(r'C:\Users\lucas\MovimentClassificator\acoes\model.pkl')
+learn = load_learner('model.pkl')
 
 categorias = ('pessoa agachada', 'pessoa andando', 'pessoa correndo', 
               'pessoa deitada', 'pessoa parada', 'pessoa pulando', 'pessoa sentada')
@@ -17,7 +17,7 @@ intf = gr.Interface(
     inputs=gr.Image(width=224, height=224),
     outputs=gr.Label(num_top_classes=3),
     title="Classificador de Movimentos Humanos",
-    description="Envie uma foto e o modelo identifica o movimento da pessoa" 
+    description="Envie uma foto e o modelo identifica o movimento da pessoa"
 )
 
-intf.launch() 
+intf.launch()
