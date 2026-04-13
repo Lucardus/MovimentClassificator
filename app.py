@@ -2,7 +2,8 @@ import pathlib
 pathlib.WindowsPath = pathlib.PosixPath
 
 from fastai.vision.all import *
-from PIL import ImageFile
+from PIL import ImageFile, Image
+import numpy as np
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 import gradio as gr
 
@@ -12,6 +13,7 @@ categorias = ('pessoa agachada', 'pessoa andando', 'pessoa correndo',
               'pessoa deitada', 'pessoa parada', 'pessoa pulando', 'pessoa sentada')
 
 def classificar(img):
+    img = Image.fromarray(img.astype('uint8'), 'RGB')
     pred, idx, probs = learn.predict(img)
     return dict(zip(categorias, map(float, probs)))
 
