@@ -27,7 +27,7 @@ intf = gr.Interface(
     inputs=gr.Image(),
     outputs=gr.Label(num_top_classes=3),
     title="Classificador de Movimentos Humanos",
-    description="Envie uma foto e o modelo identifica o movimento da pessoa"
+    description="Envie uma foto e o modelo identifica o movimento da pessoa (Pulando, agachando, andando, correndo, parado, deitado ou sentado)"
 )
 
 intf.launch()
