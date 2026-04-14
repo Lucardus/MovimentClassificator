@@ -10,8 +10,8 @@ import torch
 
 learn = load_learner('model.pkl')
 
-categorias = ('pessoa agachada', 'pessoa andando', 'pessoa correndo', 
-              'pessoa deitada', 'pessoa parada', 'pessoa pulando', 'pessoa sentada')
+categorias = ('person crouching', 'person walking', 'person running', 
+              'person lying down', 'person standing still', 'person jumping', 'person sitting')
 
 def classificar(img):
     img_pil = Image.fromarray(np.uint8(img)).convert('RGB').resize((224, 224))
@@ -27,7 +27,7 @@ intf = gr.Interface(
     inputs=gr.Image(),
     outputs=gr.Label(num_top_classes=3),
     title="Classificador de Movimentos Humanos",
-    description="Envie uma foto e o modelo identifica o movimento da pessoa (Pulando, agachando, andando, correndo, parado, deitado ou sentado)"
+    description="Send a photo and the model that identifies the person's movement from among (Jumping, squatting, walking, running, standing, lying down or sitting)"
 )
 
 intf.launch()
